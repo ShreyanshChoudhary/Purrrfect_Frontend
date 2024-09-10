@@ -1,66 +1,109 @@
 /* Navbar background color */
 .navbar-custom {
-    background-color: #ffee00; /* Dark background color for the navbar */
-  }
-  
-  /* Container for form and search button */
-  .form-container {
-    display: flex;
-    align-items: center; /* Center items vertically */
-    flex: 1; /* Allow the container to grow and take available space */
-    justify-content: center; /* Center items horizontally */
-    margin-right: 16px; /* Adjust the margin as needed */
-  }
-  
-  /* Form control (search bar) */
-  .form-control {
-    width: 200px; /* Adjust as needed */
-    margin-right: 8px; /* Space between search bar and search button */
-  }
-  
-  /* Search button */
-  .custom-search-button {
-    background-color: #000000; /* Your desired color */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-    margin-right: 8px; /* Space between search button and signup button */
-  }
-  
-  
-  
-  /* Signup button container */
-  .signup-button-container {
-    display: flex;
-    align-items: center; /* Center items vertically */
-  }
-  
-  /* Signup button */
-  .custom-signup-button {
-    background-color: #000000; /* Your desired color */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-  }
-  
-  .custom-signup-button:hover {
-    background-color: #000000; /* Darker shade on hover */
-  }
-  
-  /* Navbar link and brand colors */
-  .navbar-custom .nav-link, .navbar-custom .navbar-brand {
-    color: rgb(0, 0, 0); /* Black color for links and brand */
-  }
-  
-  .navbar-custom .nav-link:hover {
-    color: #b5dc05; /* Light green color on hover */
-  }
-  /* Navbar brand styling */
+  background-color: #ffee00; /* Dark background color for the navbar */
+}
+
+/* Container for form and search button */
+.form-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  flex: 1; /* Allow the container to grow and take available space */
+  justify-content: center; /* Center items horizontally */
+  margin-right: 16px; /* Adjust the margin as needed */
+}
+
+/* Form control (search bar) */
+.form-control {
+  width: 200px; /* Adjust as needed */
+  margin-right: 8px; /* Space between search bar and search button */
+}
+
+/* Search button */
+.custom-search-button {
+  background-color: #000000; /* Your desired color */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  margin-right: 8px; /* Space between search button and signup button */
+}
+
+/* Signup button container */
+.signup-button-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+/* Signup button */
+.custom-signup-button {
+  background-color: #000000; /* Your desired color */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+}
+
+.custom-signup-button:hover {
+  background-color: #000000; /* Darker shade on hover */
+}
+
+/* Navbar link and brand colors */
+.navbar-custom .nav-link,
 .navbar-custom .navbar-brand {
-    font-size: 1.75rem; /* Adjust font size as needed */
-    font-weight: bold; /* Optional: make the font bold */
-    color: rgb(0, 0, 0); /* Adjust text color as needed */
-     }
-  
-  .navbar-custom .navbar-brand:hover {
-    color: #b5dc05; /* Optional: change color on hover */
-  }
-  
+  color: rgb(0, 0, 0); /* Black color for links and brand */
+}
+
+.navbar-custom .nav-link:hover {
+  color: #b5dc05; /* Light green color on hover */
+}
+/* Navbar brand styling */
+.navbar-custom .navbar-brand {
+  font-size: 1.75rem; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: make the font bold */
+  color: rgb(0, 0, 0); /* Adjust text color as needed */
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #b5dc05; /* Optional: change color on hover */
+}
+
+/* Light Mode */
+body.light {
+  background-color: #f8f9fa;
+  color: #000; /* Black text for light background */
+}
+
+.navbar-light {
+  background-color: #f8f9fa;
+  color: #000; /* Black text for light navbar */
+}
+
+.navbar-light .nav-link {
+  color: #000; /* Set navbar links to black in light mode */
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #f8f9fa; /* White text for dark background */
+}
+
+.navbar-dark {
+  background-color: #333;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: #f8f9fa; /* Set navbar brand and links to white in dark mode */
+}
+
+.navbar-dark .nav-link:hover {
+  color: #ddd; /* Lighten text on hover for better visibility */
+}
+
+/* Custom button styling for both modes */
+.custom-search-button {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.custom-signup-button {
+  color: #fff;
+  background-color: #28a745;
+}

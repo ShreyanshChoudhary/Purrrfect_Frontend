@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -9,8 +9,23 @@ import SignupButton from "./SignupButton";
 import '../App.css'; // Ensure this file includes your custom CSS
 
 function NavScrollExample() {
+  // State for theme (light/dark)
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  // Apply the theme to the body class
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <Navbar className="navbar-custom" expand="lg">
+    <Navbar className={`navbar-custom ${theme === 'dark' ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`} expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">Purrrfect</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -41,6 +56,10 @@ function NavScrollExample() {
           <div className="signup-button-container">
             <SignupButton className="custom-signup-button" />
           </div>
+          {/* Dark/Light Mode Toggle Button */}
+          <Button variant="outline-secondary" onClick={toggleTheme} className="ms-2">
+            {theme === "light" ? "Dark Mode" : "Light Mode"}
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
