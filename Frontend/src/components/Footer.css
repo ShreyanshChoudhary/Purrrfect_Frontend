@@ -1,70 +1,67 @@
-.section__padding {
-  padding: 4rem 4rem;
-}
+/* Footer.css */
 
+/* Footer container styles */
 .footer {
   background-color: #2d2d32;
-}
-
-.sb__footer {
-  display: flex;
-  flex-direction: column;
-}
-
-.sb__footer-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
+  padding: 20px 0;
   width: 100%;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.sb__footer-links_div {
-  width: 150px;
-  margin: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
   color: white;
 }
 
-a {
-  color: rgb(175, 175, 179);
-  text-decoration: none;
+/* Footer main content */
+.sb_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the content */
 }
 
+/* Footer links styling */
+.sb__footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Each section of footer links */
+.sb__footer-links-div {
+  width: 150px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: white; /* Default text color */
+}
+
+/* Link styles */
+.sb__footer-links-div a {
+  color: rgb(175, 175, 179); /* Set link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.sb__footer-links-div a:hover {
+  color: white; /* Change color on hover */
+  text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+/* Social media styles */
 .socialmedia {
   display: flex;
   flex-direction: row;
-  gap: 10px; /* Adds some spacing between icons */
 }
 
 .socialmedia img {
-  width: 24px; /* Set a fixed size for the icons */
-  height: 24px; /* Ensures the aspect ratio remains the same */
+  width: 30px; /* Adjust size for social icons */
+  margin-right: 10px; /* Space between icons */
 }
 
-.sb__footer-links_div h4 {
-  font-size: 14px;
-  line-height: 17px;
-  margin-bottom: 0.9rem;
-}
-
-.sb__footer-links_div p {
-  font-size: 12px;
-  line-height: 15px;
-  margin: 0.5rem 0;
-  cursor: pointer;
-}
-
+/* Footer below section */
 .sb__footer-below {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 1rem;
+  justify-content: space-between; /* Align copyright and links properly */
+  width: 100%;
+  border-top: 1px solid rgba(175, 175, 179, 0.5); /* Optional border for separation */
+  padding-top: 10px; /* Space above links */
 }
 
 .sb__footer-below-links {
@@ -72,34 +69,36 @@ a {
   flex-direction: row;
 }
 
+/* Remove underline from footer links */
+.sb__footer-below-links a {
+  text-decoration: none; /* Remove underline */
+}
+
+.sb__footer-below-links a:hover {
+  text-decoration: underline; /* Optionally add underline on hover for clarity */
+  color: white; /* Change color on hover */
+}
+
 .sb__footer-below-links p {
-  font-size: 13px;
-  line-height: 15px;
-  margin-left: 2rem;
-  color: white;
-  font-weight: 600;
+  font-size: 12px;
+  margin-left: 20px; /* Space between links */
+  color: rgb(175, 175, 179); /* Match link color with above */
+  cursor: pointer;
 }
 
 .sb__footer-copyright {
   font-size: 13px;
-  line-height: 15px;
-  color: white;
-  font-weight: 600;
 }
 
-@media screen and (max-width: 550px) {
-  .sb__footer-links_div {
-    margin: 1rem 0;
+/* Responsive Styles */
+@media screen and (max-width: 850px) {
+  .sb__footer-links {
+    flex-direction: column; /* Stack items on smaller screens */
+    align-items: center; /* Center items */
   }
 
-  .sb__footer-below {
-    flex-direction: column;
-    justify-content: left;
-  }
-
-  .sb__footer-below-links {
-    flex-direction: column;
-    margin-left: 0;
-    margin-top: 1rem;
+  .sb__footer-links-div {
+    width: auto; /* Adjust width for smaller screens */
+    margin: 0.5rem 0; /* Reduce margin for spacing */
   }
 }
