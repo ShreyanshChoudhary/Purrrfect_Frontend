@@ -9,91 +9,98 @@ const Footer = () => {
       <div className="sb_footer section__padding">
         <div className="sb__footer-links">
           
-          {/* Pet Services Section */}
+          {/* For Business Section */}
           <div className="sb__footer-links-div">
-            <h4>Our Services</h4>
-            <a href="/pet-food">
-              <p>Premium Pet Food</p>
+            <h4>For Business</h4>
+            <a href="/employer">
+              <p>Employer</p>
             </a>
             <a href="/healthplan">
-              <p>Health Plans</p>
+              <p>Health Plan</p>
             </a>
-            <a href="/treats">
-              <p>Pet Treats</p>
+            <a href="/individual">
+              <p>Individual</p>
             </a>
           </div>
 
           {/* Pet Care Resources Section */}
           <div className="sb__footer-links-div">
             <h4>Pet Care Resources</h4>
-            <a href="/resource">
-              <p>Resource Center</p>
+            <a href="/petfood">
+              <p>Pet Food</p>
             </a>
-            <a href="/testimonials">
-              <p>Customer Testimonials</p>
+            <a href="/toys">
+              <p>Toys</p>
             </a>
-            <a href="/stv">
-              <p>Training Videos</p>
+            <a href="/healthcare">
+              <p>Healthcare</p>
             </a>
           </div>
 
-          {/* Partnered Vets Section */}
+          {/* Partners Section */}
           <div className="sb__footer-links-div">
-            <h4>Our Partners</h4>
+            <h4>Partners</h4>
             <a href="/partners">
-              <p>Veterinarian Clinics</p>
+              <p>Purrrfect</p>
             </a>
           </div>
 
-          {/* About Us Section */}
+          {/* Company Section */}
           <div className="sb__footer-links-div">
-            <h4>About Purrrfect</h4>
+            <h4>Company</h4>
             <a href="/about">
-              <p>Our Story</p>
+              <p>About</p>
             </a>
             <a href="/press">
-              <p>Press Releases</p>
+              <p>Press</p>
             </a>
             <a href="/career">
-              <p>Join Our Team</p>
+              <p>Career</p>
             </a>
             <a href="/contact">
-              <p>Contact Us</p>
+              <p>Contact</p>
             </a>
           </div>
 
           {/* Social Media Section */}
           <div className="sb__footer-links-div">
-            <h4>Follow Us</h4>
+            <h4>Available on</h4>
             <div className="socialmedia">
               <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
                 <img src={fb} alt="Facebook" className="social-icon" />
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/__purrrfect/" target="_blank" rel="noreferrer">
                 <img src={insta} alt="Instagram" className="social-icon" />
               </a>
             </div>
           </div>
 
-          {/* Footer Below Section */}
           <div className="sb__footer-below">
             <div className="sb__footer-copyright">
               <p>
-                &copy; {new Date().getFullYear()} Purrrfect. All Rights Reserved.
+                @{new Date().getFullYear()} Purrrfect. All Rights Reserved.
               </p>
             </div>
             <div className="sb__footer-below-links">
               <a href="/terms">
-                <p>Terms & Conditions</p>
+                <div>
+                  <p>Terms & Conditions</p>
+                </div>
               </a>
               <a href="/privacy">
-                <p>Privacy</p>
+                <div>
+                  <p>Privacy</p>
+                </div>
               </a>
               <a href="/security">
-                <p>Security</p>
+                <div>
+                  <p>Security</p>
+                </div>
               </a>
               <a href="/cookie">
-                <p>Cookie declaration</p>
+                <div>
+                  <p>Cookie Declaration</p>
+                </div>
               </a>
             </div>
           </div>
