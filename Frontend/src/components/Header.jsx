@@ -8,7 +8,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import SignupButton from "./SignupButton";
 import '../App.css'; // Ensure this file includes your custom CSS
 
-function NavScrollExample() {
+function Header() {
   // State for theme (light/dark)
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -56,14 +56,21 @@ function NavScrollExample() {
           <div className="signup-button-container">
             <SignupButton className="custom-signup-button" />
           </div>
-          {/* Dark/Light Mode Toggle Button */}
-          <Button variant="outline-secondary" onClick={toggleTheme} className="ms-2">
-            {theme === "light" ? "Dark Mode" : "Light Mode"}
-          </Button>
+          {/* Dark/Light Mode Toggle Switch */}
+          <div className="theme-toggle">
+            <label className="switch">
+              <input
+                type="checkbox"
+                onChange={toggleTheme}
+                checked={theme === "dark"}
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
 
-export default NavScrollExample;
+export default Header;

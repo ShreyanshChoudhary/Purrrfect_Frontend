@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import SignupButton from "./components/SignupButton";
 import Footer from "./components/Footer";
 import "./global.css";  // Assuming you've created the global.css file
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
     return (
