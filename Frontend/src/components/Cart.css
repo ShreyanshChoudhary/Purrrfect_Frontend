@@ -1,0 +1,44 @@
+/* Cart button container */
+.cart-button-container {
+    margin-left: 15px; /* Space between other elements */
+    position: relative; /* To position the badge */
+  }
+  
+  /* Cart icon container */
+  .cart-icon-container {
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* Cart icon styling */
+  .cart-icon {
+    font-size: 24px; /* Adjust the size as needed */
+  }
+  
+  /* Cart item count badge */
+  .cart-count {
+    position: absolute;
+    top: -10px; /* Adjust the vertical position */
+    right: -10px; /* Adjust the horizontal position */
+    background-color: red; /* Red background to highlight the count */
+    color: white; /* White text color */
+    font-size: 14px; /* Font size for the count */
+    font-weight: bold; /* Make the number bold */
+    padding: 5px;
+    border-radius: 50%; /* Circular shape */
+    min-width: 18px; /* Minimum size for the badge */
+    text-align: center; /* Center the number inside the badge */
+    line-height: 18px; /* Vertically center the number */
+  }
+  
+  /* Cart button hover effect */
+  .cart-button-container:hover {
+    color: red; /* Change the cart icon color to red when hovered */
+  }
+  
+  /* Ensure the cart icon inside the button is affected */
+  .cart-button-container:hover .cart-icon {
+    color: red; /* Change the cart icon color to red */
+  }
+  

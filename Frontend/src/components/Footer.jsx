@@ -1,7 +1,8 @@
 import React from "react";
-import "./Footer.css"; // Custom CSS for the footer
+// Custom CSS for the footer
 import fb from "../assets/fbimage.png";
 import insta from "../assets/instaimage.png";
+  import './Footer.css' // Ensure this file includes your custom CSS
 
 const Footer = () => {
   return (

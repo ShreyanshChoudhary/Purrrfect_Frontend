@@ -1,0 +1,62 @@
+/* Overall container that centers the content */
+.fallback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the screen */
+    background-color: #f8f9fa; /* Light background */
+    overflow: hidden; /* Prevent overflow */
+    gap: 2px; /* Very small gap between the dog and cat */
+  }
+  
+  /* The container holding each pet */
+  .animation-container {
+    position: relative;
+    width: 60px; /* Reduced width for both containers */
+    height: 60px; /* Reduced height for the animation */
+  }
+  
+  /* Basic style for the cat */
+  .cat {
+    position: absolute;
+    animation: run-cat 1s linear infinite; /* Fast running animation for the cat */
+    animation-timing-function: linear infinite;
+    bottom: 0;
+    z-index: 2; /* Cat is in front of the dog */
+  }
+  
+  /* Basic style for the dog */
+  .dog {
+    position: absolute;
+    animation: run-dog 1s linear infinite; /* Fast running animation for the dog */
+    animation-timing-function: linear infinite;
+    bottom: 0;
+    z-index: 1; /* Dog is behind the cat */
+  }
+  
+  /* Animation for the cat: move from left to right */
+  @keyframes run-cat {
+    0% {
+      transform: translateX(-15px); /* Start from an even closer position */
+    }
+    50% {
+      transform: translateX(15px); /* Move right but with a small range */
+    }
+    100% {
+      transform: translateX(-15px); /* Go back to the smaller left distance */
+    }
+  }
+  
+  /* Animation for the dog: move from left to right */
+  @keyframes run-dog {
+    0% {
+      transform: translateX(-15px); /* Start from an even closer position */
+    }
+    50% {
+      transform: translateX(15px); /* Move right but with a small range */
+    }
+    100% {
+      transform: translateX(-15px); /* Go back to the smaller left distance */
+    }
+  }
+  

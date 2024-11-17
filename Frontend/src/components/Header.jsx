@@ -5,21 +5,20 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { FaDog } from "react-icons/fa"; // Importing dog icon
 import SignupButton from "./SignupButton";
-import '../App.css'; // Ensure this file includes your custom CSS
+import Cart from "./Cart"; // Importing Cart component
+import './Header.css'; // Ensure this file includes your custom CSS
 
 function Header() {
-  // State for theme (light/dark)
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // Toggle theme function
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
-  // Apply the theme to the body class
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
@@ -27,7 +26,7 @@ function Header() {
   return (
     <Navbar className={`navbar-custom ${theme === 'dark' ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`} expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Purrrfect</Navbar.Brand>
+        <Navbar.Brand href="#">Purrrfect <FaDog size={24} className="dog-logo" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
@@ -43,27 +42,17 @@ function Header() {
           </Nav>
           <div className="form-container">
             <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <Button className="custom-search-button">
-                Search
-              </Button>
+              <Form.Control type="search" placeholder="Search" aria-label="Search" />
+              <Button className="search-button">Search</Button>
             </Form>
           </div>
           <div className="signup-button-container">
             <SignupButton className="custom-signup-button" />
           </div>
-          {/* Dark/Light Mode Toggle Switch */}
+          <Cart /> {/* Using the Cart component here */}
           <div className="theme-toggle">
             <label className="switch">
-              <input
-                type="checkbox"
-                onChange={toggleTheme}
-                checked={theme === "dark"}
-              />
+              <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"} />
               <span className="slider round"></span>
             </label>
           </div>

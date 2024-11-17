@@ -1,23 +1,26 @@
 /* global.css */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #root {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .main-content {
-    flex: 1; /* This will push the footer to the bottom */
-  }
-  
-  .footer {
-    background-color: #2d2d32;
-    padding: 20px 0;
-    width: 100%;
-  }
-  
+  height: 100%; /* Ensure full height for body */
+  margin: 0; /* Remove default margin */
+}
+
+.homepage {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange children in a column */
+  min-height: 100vh; /* Minimum height of the homepage is full viewport height */
+}
+
+.homepage-content {
+  flex: 1; /* Allow this section to grow and take up available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Styles for the footer */
+.footer {
+  background-color: #0c0d0e; /* Example footer background color */
+  padding: 10px; /* Example footer padding */
+  text-align: center; /* Center text in the footer */
+}

@@ -1,13 +1,20 @@
+// src/components/SignupButton.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import '../App.css'; // Ensure this file includes your custom CSS
+import '../App.css';
 
 function SignupButton() {
-  return (
-    <Button className="custom-signup-button">
-      Sign Up
-    </Button>
-  );
+    return (
+        <Link to="/signup-login">
+            <Button 
+                className="signup-button" 
+                variant="dark"
+            >
+                Sign Up/Login
+            </Button>
+        </Link>
+    );
 }
 
 export default SignupButton;

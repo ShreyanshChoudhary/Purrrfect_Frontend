@@ -1,0 +1,53 @@
+/* Style for the Carousel container */
+.carousel-container {
+  width: 100%;
+  max-width: 1500px; /* Decreased max-width */
+  height: 180px; /* Slightly decreased height */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 10px auto; /* Center the carousel */
+  box-sizing: border-box; /* Prevent overflow due to padding or border */
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 300px; /* Decreased height for mobile screens */
+    max-width: 100%; /* Ensure the carousel fits the screen */
+    margin: 0 auto; /* Center the carousel on small screens */
+  }
+}
+
+/* Style for the carousel image */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Style for the Carousel wrapper */
+.carousel-wrapper {
+  padding-top: 20px;
+  height: auto; /* Remove min-height */
+}
+
+/* Style for the carousel indicators */
+.carousel-indicators li {
+  background-color: #000; /* Black color for the circles */
+  border-radius: 50%; /* Makes the indicator circular */
+  width: 12px; /* Set the size of the circle */
+  height: 12px; /* Set the size of the circle */
+  margin: 0 5px; /* Space between indicators */
+}
+
+/* Active indicator style */
+.carousel-indicators .active {
+  background-color: #ff6347; /* Highlight active indicator with a different color */
+}

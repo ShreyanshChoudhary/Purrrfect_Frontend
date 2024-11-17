@@ -1,0 +1,209 @@
+/* Navbar background color */
+.navbar-custom {
+  background-color: #ffee00; /* Dark background color for the navbar */
+  width: 100%; /* Ensure navbar takes the full width */
+  box-sizing: border-box; /* Prevent overflow due to padding or margins */
+}
+
+/* Prevent navbar items from extending beyond the screen */
+.navbar-collapse {
+  flex-grow: 1; /* Allow it to take the remaining space */
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: bold; /* Ensure 'Purrrfect' text is bold */
+}
+
+/* Container for form and search button */
+.form-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  flex: 1; /* Allow the container to grow and take available space */
+  justify-content: center; /* Center items horizontally */
+  margin-right: 16px; /* Adjust the margin as needed */
+}
+
+/* Form control (search bar) */
+.form-control {
+  width: 200px; /* Adjust as needed */
+  margin-right: 8px; /* Space between search bar and search button */
+}
+
+/* Search button */
+.search-button {
+  background-color: #000000; /* Black background */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  margin-left: 8px; /* Space between search bar and search button */
+}
+
+.search-button:hover {
+  background-color: #333333; /* Slightly lighter black for hover effect */
+}
+
+/* Signup/Login button container */
+.signup-login-button-container {
+  margin-left: 15px; /* Space between other elements */
+}
+
+/* Signup/Login button */
+.custom-signup-login-button {
+  font-size: 14px;
+  font-weight: bold;
+  color: #388e3c; /* Green color for button */
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: 2px solid #388e3c;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Include border color in transition */
+}
+
+.custom-signup-login-button:hover {
+  background-color: #388e3c;
+  color: #fff;
+  border-color: red; /* Ensure the border color changes to red on hover */
+}
+
+.custom-signup-login-button:focus {
+  outline: none; /* Remove the default focus outline */
+}
+
+/* Style for the dropdown items inside the 'Products' dropdown */
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-dropdown-item:hover {
+  color: red !important; /* Change the text color to red on hover */
+}
+
+/* Style for the Products dropdown */
+.navbar-custom .navbar-nav .nav-dropdown-menu {
+  background-color: #fff; /* Ensure dropdown has white background */
+}
+
+/* Style for individual dropdown items inside the 'Products' dropdown */
+.navbar-custom .navbar-nav .nav-dropdown-item {
+  color: inherit; /* Ensure the dropdown items inherit the normal text color */
+}
+
+/* Change background color and text color when hovered */
+.navbar-custom .navbar-nav .nav-dropdown-item:hover {
+  background-color: #f44336 !important; /* Red background color */
+  color: white !important; /* White text color on hover */
+}
+
+/* Prevent the active state from showing blue and make it red */
+.navbar-custom .navbar-nav .nav-dropdown-item.active,
+.navbar-custom .navbar-nav .nav-dropdown-item:active {
+  background-color: #f44336 !important; /* Red background color when clicked */
+  color: white !important; /* White text color when clicked */
+}
+
+/* Light Mode */
+body.light {
+  background-color: #f8f9fa;
+  color: #000; /* Black text for light background */
+}
+
+.navbar-light {
+  background-color: #f8f9fa;
+  color: #000; /* Black text for light navbar */
+}
+
+.navbar-light .nav-link {
+  color: #000; /* Set navbar links to black in light mode */
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #f8f9fa; /* White text for dark background */
+}
+
+.navbar-dark {
+  background-color: #333;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: #f8f9fa; /* Set navbar brand and links to white in dark mode */
+}
+
+.navbar-dark .nav-link:hover {
+  color: #ddd; /* Lighten text on hover for better visibility */
+}
+
+/* Toggle Switch CSS */
+.theme-toggle {
+  margin-left: 20px; /* Adjust as necessary */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Change background color when checked */
+input:checked + .slider {
+  background-color: grey;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Style for the dog logo next to Purrrfect */
+.dog-logo {
+  margin-left: 8px; /* Adjust spacing between 'Purrrfect' and the logo */
+  vertical-align: middle; /* Align the logo vertically in the middle of the text */
+  color: #000; /* Change the color of the dog icon if needed */
+}
+
+/* Optional: Add hover effect to the dog logo */
+.dog-logo:hover {
+  color: #f44336; /* Red color on hover */
+}
+
+/* Navbar brand (Purrrfect) hover effect */
+.navbar-brand:hover {
+  color: red; /* Change text color to red on hover */
+}
+
+/* Ensure dog logo remains unaffected */
+.navbar-brand .dog-logo {
+  transition: color 0.3s ease; /* Optional: Smooth transition for logo color */
+}
+
+/* Optional: Add a hover effect to the dog logo itself */
+.navbar-brand:hover .dog-logo {
+  color: red; /* Change dog logo color to red on hover */
+}
