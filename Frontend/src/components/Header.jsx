@@ -5,13 +5,14 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { FaDog } from "react-icons/fa"; // Importing dog icon
-import SignupButton from "./SignupButton";
-import Cart from "./Cart"; // Importing Cart component
-import './Header.css'; // Ensure this file includes your custom CSS
+import { FaDog } from "react-icons/fa";
+import { useUser } from "./contexts/UserContext";
+import Cart from "./Cart";
+import './Header.css';
 
 function Header() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { user, isAuthenticated, logout } = useUser();
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -23,36 +24,78 @@ function Header() {
     document.body.className = theme;
   }, [theme]);
 
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
+
   return (
-    <Navbar className={`navbar-custom ${theme === 'dark' ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`} expand="lg">
+    <Navbar className="navbar-custom" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Purrrfect <FaDog size={24} className="dog-logo" /></Navbar.Brand>
+        <Navbar.Brand href="/" className="navbar-brand">
+          Purrrfect <FaDog size={24} className="dog-logo" />
+        </Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="navbarScroll" />
+        
         <Navbar.Collapse id="navbarScroll">
+          {/* Navigation Links */}
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown title="Products" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Pets</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Food</NavDropdown.Item>
+              <NavDropdown.Item href="/products">All Products</NavDropdown.Item>
+              <NavDropdown.Item href="/products/pets">Pets</NavDropdown.Item>
+              <NavDropdown.Item href="/products/food">Food</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Accessories</NavDropdown.Item>
+              <NavDropdown.Item href="/products/accessories">Accessories</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">Contact us</Nav.Link>
+            <Nav.Link href="/contact">Contact us</Nav.Link>
           </Nav>
+
+          {/* Search Bar */}
           <div className="form-container">
-            <Form className="d-flex">
-              <Form.Control type="search" placeholder="Search" aria-label="Search" />
-              <Button className="search-button">Search</Button>
-            </Form>
+            <Form.Control 
+              type="search" 
+              placeholder="Search" 
+              aria-label="Search" 
+              className="form-control"
+            />
+            <Button className="search-button">Search</Button>
           </div>
-          <div className="signup-button-container">
-            <SignupButton className="custom-signup-button" />
-          </div>
-          <Cart /> {/* Using the Cart component here */}
+
+          {/* User Section - Simple and Clean */}
+          {isAuthenticated ? (
+            <div className="profile-container">
+              <span className="profile-name">{user?.name || user?.email || 'User'}</span>
+              <Button 
+                variant="link" 
+                onClick={handleLogout} 
+                className="logout-button"
+              >
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              href="/auth" 
+              className="custom-signup-login-button"
+            >
+              Sign Up / Login
+            </Button>
+          )}
+
+          {/* Cart Component */}
+          <Cart />
+
+          {/* Theme Toggle */}
           <div className="theme-toggle">
             <label className="switch">
-              <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"} />
+              <input 
+                type="checkbox" 
+                onChange={toggleTheme} 
+                checked={theme === "dark"} 
+              />
               <span className="slider round"></span>
             </label>
           </div>

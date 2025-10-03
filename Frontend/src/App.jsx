@@ -4,34 +4,36 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Fallback from "./components/Fallback"
-
-// Import HomePage normally as it's the main page
+import Fallback from "./components/Fallback";
 import HomePage from './components/HomePage';
+import { UserProvider } from './components/contexts/UserContext';
 
-// Lazy load SignupLoginPage with a delay
-const SignupLoginPage = lazy(() => 
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(import('./components/SignupLoginPage'));
-    }, 1000); // 1 second delay
-  })
-);
+// Lazy load pages for performance optimization
+const SignupLoginPage = lazy(() => import('./components/SignupLoginPage'));
+const ProductTile = lazy(() => import('./components/ProductTile'));
+const ProductDetail = lazy(() => import('./components/ProductDetail'));
 
 function App() {
-    return (
-        <Router>
-            <div className="main-content">
-                <Suspense fallback={<div><Fallback /></div>}>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        {/* Adding key prop to force re-render on navigation */}
-                        <Route path="/signup-login" element={<SignupLoginPage />} key="signup-login" />
-                    </Routes>
-                </Suspense>
-            </div>
-        </Router>
-    );
+  return (
+    <UserProvider>
+      <Router>
+        <div className="App">
+        
+          <main className="main-content" style={{ minHeight: 'calc(100vh - 120px)' }}> {/* Added min-height */}
+            <Suspense fallback={<div><Fallback /></div>}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/products" element={<ProductTile />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/signup-login" element={<SignupLoginPage />} />
+                <Route path="/auth" element={<SignupLoginPage />} />
+              </Routes>
+            </Suspense>
+          </main>
+        </div>
+      </Router>
+    </UserProvider>
+  );
 }
 
 export default App;

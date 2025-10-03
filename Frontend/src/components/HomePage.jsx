@@ -1,48 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';  // Import useLocation from react-router-dom
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import Fallback from './Fallback'; // Importing the Fallback component
-import "../global.css"; // Import global styles
+import Fallback from './Fallback';
+import "../global.css"; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import CarouselFade from './CarouselFade';
 import ProductTile from './ProductTile';
+import { ProductProvider } from '../components/ProductContext'; 
+import Chatbot from './Chatbot';  // Import the Chatbot component
 
 function HomePage() {
-    const [loading, setLoading] = useState(true); // State for tracking loading
-    const location = useLocation(); // Using useLocation to track route changes
+    const [loading, setLoading] = useState(true); 
+    const [showMessage, setShowMessage] = useState(false);  // State to handle success message visibility
+    const location = useLocation(); 
 
     useEffect(() => {
-        // Set loading to true whenever the page is reloaded or when the location changes
         setLoading(true);
-
-        // Simulate a loading state (can be adjusted for your needs)
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000); // Simulate a loading state for 2 seconds
+        }, 2000); 
 
-        // Clean up the timer when component unmounts or location changes
+        // Check if the login was successful by checking the query parameter
+        if (new URLSearchParams(location.search).get('loginSuccess') === 'true') {
+            setShowMessage(true);
+        } else {
+            setShowMessage(false);
+        }
+
         return () => clearTimeout(timer);
-    }, [location]); // Dependency on location to detect page navigation
+    }, [location]); 
 
-    // If the page is in loading state, render fallback animation
     if (loading) {
         return <Fallback />;
     }
 
     return (
         <div className="homepage">
-            {/* Header component */}
             <Header />
             
-            {/* Main content area */}
             <div className="homepage-content">
+                {showMessage && <div className="alert alert-success">Login Successful!</div>}  {/* Display success message */}
                 <CarouselFade />
-                <ProductTile />
+                <ProductProvider>
+                    <ProductTile />
+                </ProductProvider>
             </div>
 
-            {/* Footer component */}
             <Footer />
+
+            {/* Add the Chatbot to the homepage */}
+            <Chatbot />
         </div>
     );
 }

@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997ec60-358f-4791-9027-675b2a5ff57a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/ImageResized1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/Persian1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Chatbot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Chatbot.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Dog-Barking.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/ProductContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/ProductDetail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/ProductDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/CarouselImage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/CarouselImage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/ProductTile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/ProductTile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/ProductTile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/ProductTile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/SignupButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/SignupButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/SignupLoginPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/SignupLoginPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/SignupLoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/SignupLoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/services/authService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/services/authService.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +44,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/shrey/Desktop/Purrrfect Backend"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shrey/Desktop/Purrrfect Backend&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

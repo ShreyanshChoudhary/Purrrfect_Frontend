@@ -1,51 +1,245 @@
-/* Container for all product cards */
+/* Product Tile Container */
 .product-tile-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between cards */
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  /* Individual card styling */
-  .product-card {
-    background: #fff;
-    border: 1px solid #e0e0e0; /* Light gray border */
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 200px;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Hover effect for card */
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Product image */
-  .product-image {
-    width: 100%;
-    height: 150px;
-    object-fit: contain; /* Keeps the image aspect ratio */
-    margin-bottom: 10px;
-  }
-  
-  /* Product details */
-  .product-details {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .product-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #212121;
-  }
-  
-  .product-price {
-    font-size: 14px;
-   
-  } 
+  position: relative;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Swiper overrides */
+.product-swiper {
+  overflow: visible !important;
+  padding: 30px 0;
+}
+
+.swiper-wrapper {
+  pointer-events: auto !important;
+}
+
+/* Product Slide */
+.product-slide {
+  transition: all 0.3s ease;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  z-index: 1;
+  padding: 20px 10px;
+  transform: scale(0.95);
+}
+
+/* Product Card */
+.product-card {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+/* Override Bootstrap Card styling */
+.product-card .card {
+  border-radius: 40px !important;
+  overflow: hidden;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.product-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.product-card .card-body {
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.product-card .card-title {
+  color: #000000;
+}
+
+.product-card .card-text {
+  color: #666666;
+}
+
+.product-card .list-group-item {
+  background-color: #f8f9fa;
+  color: #000000;
+  border-color: #dee2e6;
+}
+
+/* Instagram Reel-like Hover Effects */
+.swiper-slide-active .product-card,
+.product-slide:hover .product-card {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* For all other slides when one is hovered */
+.product-slide:hover ~ .product-slide .product-card {
+  transform: translateX(20px);
+}
+
+.product-slide:not(:hover) .product-card {
+  filter: brightness(0.9);
+}
+
+/* Add a subtle border glow like Instagram */
+.product-slide:hover .product-card {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 
+              0 0 0 2px rgba(62, 152, 255, 0.2);
+}
+
+/* Image zoom effect on hover */
+.product-card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+/* Additional hover effects for text */
+.product-card:hover .card-title {
+  color: #e51810; /* Instagram blue */
+}
+
+/* Override Swiper button styling */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Make pagination visible */
+.swiper-pagination-bullet {
+  background-color: #333;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #000;
+  opacity: 1;
+}
+
+/* ---------- DARK MODE STYLES ---------- */
+
+/* Dark mode for product tile container */
+body.dark .product-tile-container {
+  background-color: transparent;
+}
+
+/* Dark mode for product cards */
+body.dark .product-card .card {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .product-card .card-body {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+body.dark .product-card .card-title {
+  color: #ffffff !important;
+}
+
+body.dark .product-card .card-text {
+  color: #cccccc !important;
+}
+
+body.dark .product-card .list-group-item {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-color: #444444 !important;
+}
+
+/* Dark mode hover effects */
+body.dark .swiper-slide-active .product-card,
+body.dark .product-slide:hover .product-card {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .product-slide:hover .product-card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 
+              0 0 0 2px rgba(62, 152, 255, 0.3);
+}
+
+body.dark .product-card:hover .card-title {
+  color: #e51d1d !important; /* Lighter blue for dark mode */
+}
+
+/* Dark mode for non-hovered cards */
+body.dark .product-slide:not(:hover) .product-card {
+  filter: brightness(0.8);
+}
+
+/* Dark mode for Swiper navigation */
+body.dark .swiper-button-next,
+body.dark .swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000000;
+}
+
+body.dark .swiper-button-next:hover,
+body.dark .swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark mode for pagination */
+body.dark .swiper-pagination-bullet {
+  background-color: #ffffff;
+  opacity: 0.5;
+}
+
+body.dark .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+/* Dark mode for View Details button */
+body.dark .product-card .btn-primary {
+  background-color: #e83410 !important;
+  border-color: #d21919 !important;
+  color: #ffffff !important;
+}
+
+body.dark .product-card .btn-primary:hover {
+  background-color: #dd3c0f !important;
+  border-color: #cd1515 !important;
+}
+
+/* Ensure smooth transitions for dark mode */
+.product-card .card,
+.product-card .card-body,
+.product-card .card-title,
+.product-card .card-text,
+.product-card .list-group-item {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

@@ -1,140 +1,176 @@
-/* Navbar background color */
+/* Base Navbar */
 .navbar-custom {
-  background-color: #ffee00; /* Dark background color for the navbar */
-  width: 100%; /* Ensure navbar takes the full width */
-  box-sizing: border-box; /* Prevent overflow due to padding or margins */
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
 
-/* Prevent navbar items from extending beyond the screen */
+/* Make navbar collapse items align properly */
 .navbar-collapse {
-  flex-grow: 1; /* Allow it to take the remaining space */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.navbar-custom .navbar-brand {
-  font-weight: bold; /* Ensure 'Purrrfect' text is bold */
+/* Brand (left aligned) */
+.navbar-brand {
+  font-weight: bold;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+/* ---------- DARK MODE FOR PRODUCT CARDS ---------- */
+
+/* Dark mode for product cards and tiles */
+body.dark .product-card,
+body.dark .product-tile,
+body.dark .card {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
 }
 
-/* Container for form and search button */
+/* Dark mode for product card body */
+body.dark .product-card .card-body,
+body.dark .product-tile .card-body,
+body.dark .card-body {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+/* Dark mode for product titles */
+body.dark .product-card .card-title,
+body.dark .product-tile .card-title,
+body.dark .card-title {
+  color: #ffffff !important;
+}
+
+/* Dark mode for product descriptions */
+body.dark .product-card .card-text,
+body.dark .product-tile .card-text,
+body.dark .card-text {
+  color: #cccccc !important;
+}
+
+/* Dark mode for price sections */
+body.dark .product-price,
+body.dark .price-section,
+body.dark .card .text-muted {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-color: #444444 !important;
+}
+
+/* Dark mode for buttons in product cards */
+body.dark .product-card .btn,
+body.dark .product-tile .btn,
+body.dark .card .btn {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+body.dark .product-card .btn:hover,
+body.dark .product-tile .btn:hover,
+body.dark .card .btn:hover {
+  background-color: #555555 !important;
+  color: #ffffff !important;
+}
+
+/* Specific fix for price text */
+body.dark .text-dark {
+  color: #ffffff !important;
+}
+
+body.dark .bg-light {
+  background-color: #2d2d2d !important;
+}
+
+body.dark .bg-white {
+  background-color: #1e1e1e !important;
+}
+
+/* Fix for any element with inline white background */
+body.dark [style*="background-color: white"],
+body.dark [style*="background-color: #fff"],
+body.dark [style*="background-color: #ffffff"] {
+  background-color: #1e1e1e !important;
+}
+
+body.dark [style*="color: black"],
+body.dark [style*="color: #000"],
+body.dark [style*="color: #000000"] {
+  color: #ffffff !important;
+}
+
+/* Nav Links (middle) */
+.navbar-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Search form container */
 .form-container {
   display: flex;
-  align-items: center; /* Center items vertically */
-  flex: 1; /* Allow the container to grow and take available space */
-  justify-content: center; /* Center items horizontally */
-  margin-right: 16px; /* Adjust the margin as needed */
+  align-items: center;
+  margin-right: 16px;
 }
 
-/* Form control (search bar) */
 .form-control {
-  width: 200px; /* Adjust as needed */
-  margin-right: 8px; /* Space between search bar and search button */
+  width: 200px;
+  margin-right: 8px;
 }
 
-/* Search button */
 .search-button {
-  background-color: #000000; /* Black background */
-  color: white; /* White text color */
-  border: none; /* Remove border */
-  margin-left: 8px; /* Space between search bar and search button */
+  background-color: #f1f0f0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
 }
 
 .search-button:hover {
-  background-color: #333333; /* Slightly lighter black for hover effect */
+  background-color: #333333;
 }
 
-/* Signup/Login button container */
-.signup-login-button-container {
-  margin-left: 15px; /* Space between other elements */
-}
-
-/* Signup/Login button */
+/* Auth button (right side) */
 .custom-signup-login-button {
   font-size: 14px;
   font-weight: bold;
-  color: #388e3c; /* Green color for button */
+  color: #010101;
   border-radius: 5px;
   padding: 8px 12px;
-  border: 2px solid #388e3c;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Include border color in transition */
+  border: 2px solid #eeeeee;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin-left: 15px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .custom-signup-login-button:hover {
-  background-color: #388e3c;
-  color: #fff;
-  border-color: red; /* Ensure the border color changes to red on hover */
+  background-color: #000000;
+  color: #fff !important;
+  border-color: red;
 }
 
-.custom-signup-login-button:focus {
-  outline: none; /* Remove the default focus outline */
+/* Cart container */
+.cart-container {
+  margin-left: 15px;
 }
 
-/* Style for the dropdown items inside the 'Products' dropdown */
-.navbar-custom .navbar-nav .nav-link:hover,
-.navbar-custom .navbar-nav .nav-dropdown-item:hover {
-  color: red !important; /* Change the text color to red on hover */
-}
-
-/* Style for the Products dropdown */
-.navbar-custom .navbar-nav .nav-dropdown-menu {
-  background-color: #fff; /* Ensure dropdown has white background */
-}
-
-/* Style for individual dropdown items inside the 'Products' dropdown */
-.navbar-custom .navbar-nav .nav-dropdown-item {
-  color: inherit; /* Ensure the dropdown items inherit the normal text color */
-}
-
-/* Change background color and text color when hovered */
-.navbar-custom .navbar-nav .nav-dropdown-item:hover {
-  background-color: #f44336 !important; /* Red background color */
-  color: white !important; /* White text color on hover */
-}
-
-/* Prevent the active state from showing blue and make it red */
-.navbar-custom .navbar-nav .nav-dropdown-item.active,
-.navbar-custom .navbar-nav .nav-dropdown-item:active {
-  background-color: #f44336 !important; /* Red background color when clicked */
-  color: white !important; /* White text color when clicked */
-}
-
-/* Light Mode */
-body.light {
-  background-color: #f8f9fa;
-  color: #000; /* Black text for light background */
-}
-
-.navbar-light {
-  background-color: #f8f9fa;
-  color: #000; /* Black text for light navbar */
-}
-
-.navbar-light .nav-link {
-  color: #000; /* Set navbar links to black in light mode */
-}
-
-/* Dark Mode */
-body.dark {
-  background-color: #121212;
-  color: #f8f9fa; /* White text for dark background */
-}
-
-.navbar-dark {
-  background-color: #333;
-}
-
-.navbar-dark .navbar-brand,
-.navbar-dark .nav-link {
-  color: #f8f9fa; /* Set navbar brand and links to white in dark mode */
-}
-
-.navbar-dark .nav-link:hover {
-  color: #ddd; /* Lighten text on hover for better visibility */
-}
-
-/* Toggle Switch CSS */
+/* Theme toggle container */
 .theme-toggle {
-  margin-left: 20px; /* Adjust as necessary */
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
+/* ---------- TOGGLE SWITCH STYLES ---------- */
 .switch {
   position: relative;
   display: inline-block;
@@ -172,38 +208,332 @@ body.dark {
   border-radius: 50%;
 }
 
-/* Change background color when checked */
 input:checked + .slider {
-  background-color: grey;
+  background-color: #f32121;
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Style for the dog logo next to Purrrfect */
-.dog-logo {
-  margin-left: 8px; /* Adjust spacing between 'Purrrfect' and the logo */
-  vertical-align: middle; /* Align the logo vertically in the middle of the text */
-  color: #000; /* Change the color of the dog icon if needed */
+/* ---------- LIGHT MODE ---------- */
+body.light .navbar-custom {
+  background-color: #ffffff;
 }
 
-/* Optional: Add hover effect to the dog logo */
-.dog-logo:hover {
-  color: #f44336; /* Red color on hover */
+body.light .navbar-custom .navbar-brand,
+body.light .navbar-custom .nav-link,
+body.light .navbar-custom .navbar-text {
+  color: #000000;
 }
 
-/* Navbar brand (Purrrfect) hover effect */
-.navbar-brand:hover {
-  color: red; /* Change text color to red on hover */
+body.light .custom-signup-login-button {
+  color: #b90e0e;
+  border-color: #be0d0d;
 }
 
-/* Ensure dog logo remains unaffected */
-.navbar-brand .dog-logo {
-  transition: color 0.3s ease; /* Optional: Smooth transition for logo color */
+/* ---------- DARK MODE ---------- */
+body.dark .navbar-custom {
+  background-color: #000000;
 }
 
-/* Optional: Add a hover effect to the dog logo itself */
+body.dark .navbar-custom .navbar-brand,
+body.dark .navbar-custom .nav-link,
+body.dark .navbar-custom .navbar-text {
+  color: #ffffff;
+}
+
+body.dark .custom-signup-login-button {
+  color: hsl(0, 100%, 99%);
+  border-color: #cd0000;
+}
+
+/* ---------- HOVER EFFECTS ---------- */
+/* Navbar brand hover */
+.navbar-brand:hover,
 .navbar-brand:hover .dog-logo {
-  color: red; /* Change dog logo color to red on hover */
+  color: red !important;
+}
+
+/* Nav links hover */
+.navbar-custom .nav-link:hover {
+  color: red !important;
+}
+
+/* Dog logo styles */
+.dog-logo {
+  margin-left: 8px;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Profile container */
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.profile-name {
+  font-weight: bold;
+  color: inherit;
+}
+
+.logout-button {
+  font-size: 14px;
+  color: #030503;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.logout-button:hover {
+  color: red !important;
+}
+
+/* ---------- GLOBAL DARK MODE STYLES ---------- */
+
+/* Dark mode for entire page */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Dark mode for main content */
+body.dark .main-content {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Dark mode for containers and sections */
+body.dark .container,
+body.dark .container-fluid,
+body.dark .row,
+body.dark .col {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Dark mode for cards */
+body.dark .card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .card-header {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .card-body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Dark mode for form elements */
+body.dark .form-control {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+body.dark .form-control::placeholder {
+  color: #cccccc;
+}
+
+body.dark .form-label {
+  color: #ffffff;
+}
+
+/* Dark mode for buttons (except search button) */
+body.dark .btn:not(.search-button):not(.custom-signup-login-button) {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+body.dark .btn:not(.search-button):not(.custom-signup-login-button):hover {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+/* Keep search button black in both themes */
+.search-button {
+  background-color: #000000 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.search-button:hover {
+  background-color: #333333 !important;
+}
+
+/* Dark mode for dropdowns */
+body.dark .dropdown-menu {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+body.dark .dropdown-item {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark .dropdown-item:hover,
+body.dark .dropdown-item:focus {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+/* Dark mode for navbar dropdown specifically */
+body.dark .navbar-custom .dropdown-menu {
+  background-color: #333333;
+}
+
+body.dark .navbar-custom .dropdown-item {
+  color: #ffffff;
+}
+
+body.dark .navbar-custom .dropdown-item:hover {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+/* Dark mode for tables */
+body.dark .table {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .table th,
+body.dark .table td {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #2d2d2d;
+}
+
+/* Dark mode for alerts */
+body.dark .alert {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .alert-success {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+body.dark .alert-info {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #0277bd;
+}
+
+body.dark .alert-warning {
+  background-color: #ff6f00;
+  color: #ffffff;
+  border-color: #ff8f00;
+}
+
+body.dark .alert-danger {
+  background-color: #b71c1c;
+  color: #ffffff;
+  border-color: #c62828;
+}
+
+/* Dark mode for modals */
+body.dark .modal-content {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .modal-header,
+body.dark .modal-footer {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark .modal-body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Dark mode for badges */
+body.dark .badge {
+  color: #ffffff;
+}
+
+/* Dark mode for text colors */
+body.dark .text-dark {
+  color: #ffffff !important;
+}
+
+body.dark .text-muted {
+  color: #aaaaaa !important;
+}
+
+body.dark .text-black {
+  color: #ffffff !important;
+}
+
+/* Dark mode for backgrounds */
+body.dark .bg-light {
+  background-color: #2d2d2d !important;
+}
+
+body.dark .bg-white {
+  background-color: #1e1e1e !important;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container {
+    margin: 1rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-control {
+    width: 100% !important;
+  }
+
+  .custom-signup-login-button,
+  .profile-container,
+  .cart-container,
+  .theme-toggle {
+    margin: 0.5rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .profile-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Ensure smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

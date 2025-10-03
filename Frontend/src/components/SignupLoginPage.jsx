@@ -1,21 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "./contexts/UserContext";
 import "./SignupLoginPage.css";
-import { login, signup, setAuthToken } from "../services/authService";
+import { login, signup } from "../services/authService";
 
 function SignupLoginPage() {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const navigate = useNavigate();
+  const { login: userLogin } = useUser();
 
   const [signupData, setSignupData] = useState({
-    username: "",
+    name: "",
     password: "",
     email: "",
     phoneNumber: "",
-    address: "", // Added address field
+    address: "",
   });
 
-  const [loginData, setLoginData] = useState({ username: "", password: "" });
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
 
-  // Handle input changes for both signup and login forms
   const handleInputChange = (e, type) => {
     const { name, value } = e.target;
     if (type === "signup") {
@@ -25,28 +30,39 @@ function SignupLoginPage() {
     }
   };
 
-  // Handle signup form submission
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("Signup Data:", signupData); // Log to verify signup data
     try {
-      const message = await signup(signupData); // Call signup service
-      alert(message); // Notify user of successful signup
-      setIsRightPanelActive(false); // Switch to login panel
+      console.log('Sending signup data:', signupData);
+      const message = await signup(signupData);
+      alert(message);
+      setIsRightPanelActive(false); // Switch to login panel after signup
     } catch (error) {
+      console.error('Signup error:', error);
       alert(error.response?.data || "Signup failed");
     }
   };
 
-  // Handle login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = await login(loginData); // Call login service
-      setAuthToken(data.jwtToken); // Set token in axios headers
-      alert(`Welcome ${data.username}!`);
-      // Redirect or update UI for logged-in user
+      console.log('Sending login data:', loginData);
+      const data = await login(loginData);
+      console.log('Login response:', data);
+      
+      if (!data.jwtToken) throw new Error("Invalid login response");
+      
+      // Use the context login function
+      userLogin(data.jwtToken, { 
+        email: data.email, 
+        name: data.name,
+        id: data.userId 
+      });
+      
+      alert(`Welcome ${data.name || data.email}!`);
+      navigate("/");
     } catch (error) {
+      console.error('Login error:', error);
       alert(error.response?.data || "Login failed");
     }
   };
@@ -60,20 +76,25 @@ function SignupLoginPage() {
             <h1>Create Account</h1>
             <input
               type="text"
-              name="username"
-              placeholder="Username"
+              name="name"
+              placeholder="Name"
               required
-              value={signupData.username}
+              value={signupData.name}
               onChange={(e) => handleInputChange(e, "signup")}
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              value={signupData.password}
-              onChange={(e) => handleInputChange(e, "signup")}
-            />
+            <div className="password-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                required
+                value={signupData.password}
+                onChange={(e) => handleInputChange(e, "signup")}
+              />
+              <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? "👁️" : "👀"}
+              </span>
+            </div>
             <input
               type="email"
               name="email"
@@ -93,7 +114,7 @@ function SignupLoginPage() {
             <input
               type="text"
               name="address"
-              placeholder="Address"  // New Address input field
+              placeholder="Address"
               required
               value={signupData.address}
               onChange={(e) => handleInputChange(e, "signup")}
@@ -107,26 +128,42 @@ function SignupLoginPage() {
           <form className="auth-page__form-content" onSubmit={handleLogin}>
             <h1>Sign In</h1>
             <input
-              type="text"
-              name="username"
-              placeholder="Username"
+              type="email"
+              name="email"
+              placeholder="Email"
               required
-              value={loginData.username}
+              value={loginData.email}
               onChange={(e) => handleInputChange(e, "login")}
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              value={loginData.password}
-              onChange={(e) => handleInputChange(e, "login")}
-            />
+            <div className="password-container">
+              <input
+                type={showLoginPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                required
+                value={loginData.password}
+                onChange={(e) => handleInputChange(e, "login")}
+              />
+              <span className="eye-icon" onClick={() => setShowLoginPassword(!showLoginPassword)}>
+                {showLoginPassword ? "👁️" : "👀"}
+              </span>
+            </div>
             <button type="submit">Sign In</button>
+
+            {/* Google Login */}
+            <a href="http://localhost:8081/oauth2/authorization/google" className="google-btn">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+                alt="Google"
+                width="20"
+                style={{ marginRight: "8px" }}
+              />
+              Continue with Google
+            </a>
           </form>
         </div>
 
-        {/* Overlay */}
+        {/* Overlay Panels */}
         <div className="auth-page__overlay-container">
           <div className="auth-page__overlay">
             <div className="auth-page__overlay-panel auth-page__overlay-left">
