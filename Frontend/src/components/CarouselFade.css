@@ -1,25 +1,39 @@
+/* Global reset to prevent horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style for the Carousel wrapper */
+.carousel-wrapper {
+  padding-top: 20px;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 /* Style for the Carousel container */
 .carousel-container {
   width: 100%;
-  max-width: 1500px; /* Decreased max-width */
-  height: 180px; /* Slightly decreased height */
+  max-width: min(1500px, 100vw); /* Key fix - prevents overflow */
+  height: 180px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
-  margin: 10px auto; /* Center the carousel */
-  box-sizing: border-box; /* Prevent overflow due to padding or border */
-}
-
-/* For smaller screens */
-@media (max-width: 768px) {
-  .carousel-container {
-    height: 300px; /* Decreased height for mobile screens */
-    max-width: 100%; /* Ensure the carousel fits the screen */
-    margin: 0 auto; /* Center the carousel on small screens */
-  }
+  margin: 10px auto;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Style for the carousel image */
@@ -30,24 +44,168 @@
   position: absolute;
   top: 0;
   left: 0;
+  max-width: 100%; /* Prevent image overflow */
 }
 
-/* Style for the Carousel wrapper */
-.carousel-wrapper {
-  padding-top: 20px;
-  height: auto; /* Remove min-height */
+/* Style for carousel inner container */
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Style for individual carousel items */
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
 }
 
 /* Style for the carousel indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
 .carousel-indicators li {
-  background-color: #000; /* Black color for the circles */
-  border-radius: 50%; /* Makes the indicator circular */
-  width: 12px; /* Set the size of the circle */
-  height: 12px; /* Set the size of the circle */
-  margin: 0 5px; /* Space between indicators */
+  background-color: #000;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /* Active indicator style */
 .carousel-indicators .active {
-  background-color: #ff6347; /* Highlight active indicator with a different color */
+  background-color: #ff6347;
+}
+
+/* Style for carousel captions */
+.carousel-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 5;
+}
+
+.carousel-caption h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 300px;
+    max-width: 100vw; /* Ensure it doesn't exceed viewport */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 1.2rem;
+  }
+  
+  .carousel-indicators {
+    bottom: 5px;
+  }
+  
+  .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 250px;
+    border-radius: 4px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 1rem;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+}
+
+/* Additional safety measures */
+.carousel-wrapper * {
+  max-width: 100%;
+}
+
+/* Ensure no element can cause horizontal scroll */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for any potential transform issues */
+.carousel-item {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

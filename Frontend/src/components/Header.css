@@ -1,539 +1,253 @@
-/* Base Navbar */
+/* =========================
+   BASE NAVBAR
+========================= */
 .navbar-custom {
   width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-}
-
-/* Make navbar collapse items align properly */
-.navbar-collapse {
+  padding: 0.6rem 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-/* Brand (left aligned) */
+body.light .navbar-custom {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.dark .navbar-custom {
+  background-color: #000000;
+  color: #fff;
+}
+
+/* =========================
+   BRAND
+========================= */
 .navbar-brand {
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-right: 20px;
   display: flex;
   align-items: center;
-}
-/* ---------- DARK MODE FOR PRODUCT CARDS ---------- */
-
-/* Dark mode for product cards and tiles */
-body.dark .product-card,
-body.dark .product-tile,
-body.dark .card {
-  background-color: #1e1e1e !important;
-  color: #ffffff !important;
-  border-color: #333333 !important;
+  cursor: pointer;
 }
 
-/* Dark mode for product card body */
-body.dark .product-card .card-body,
-body.dark .product-tile .card-body,
-body.dark .card-body {
-  background-color: #1e1e1e !important;
-  color: #ffffff !important;
+.dog-logo {
+  margin-left: 8px;
+  transition: color 0.3s ease;
 }
 
-/* Dark mode for product titles */
-body.dark .product-card .card-title,
-body.dark .product-tile .card-title,
-body.dark .card-title {
-  color: #ffffff !important;
+.navbar-brand:hover,
+.navbar-brand:hover .dog-logo {
+  color: red;
 }
 
-/* Dark mode for product descriptions */
-body.dark .product-card .card-text,
-body.dark .product-tile .card-text,
-body.dark .card-text {
-  color: #cccccc !important;
-}
-
-/* Dark mode for price sections */
-body.dark .product-price,
-body.dark .price-section,
-body.dark .card .text-muted {
-  background-color: #2d2d2d !important;
-  color: #ffffff !important;
-  border-color: #444444 !important;
-}
-
-/* Dark mode for buttons in product cards */
-body.dark .product-card .btn,
-body.dark .product-tile .btn,
-body.dark .card .btn {
-  background-color: #333333 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-
-body.dark .product-card .btn:hover,
-body.dark .product-tile .btn:hover,
-body.dark .card .btn:hover {
-  background-color: #555555 !important;
-  color: #ffffff !important;
-}
-
-/* Specific fix for price text */
-body.dark .text-dark {
-  color: #ffffff !important;
-}
-
-body.dark .bg-light {
-  background-color: #2d2d2d !important;
-}
-
-body.dark .bg-white {
-  background-color: #1e1e1e !important;
-}
-
-/* Fix for any element with inline white background */
-body.dark [style*="background-color: white"],
-body.dark [style*="background-color: #fff"],
-body.dark [style*="background-color: #ffffff"] {
-  background-color: #1e1e1e !important;
-}
-
-body.dark [style*="color: black"],
-body.dark [style*="color: #000"],
-body.dark [style*="color: #000000"] {
-  color: #ffffff !important;
-}
-
-/* Nav Links (middle) */
-.navbar-nav {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-/* Search form container */
-.form-container {
+/* =========================
+   RIGHT SECTION
+========================= */
+.navbar-right {
   display: flex;
   align-items: center;
-  margin-right: 16px;
+  gap: 16px;
 }
 
-.form-control {
-  width: 200px;
-  margin-right: 8px;
-}
-
-.search-button {
-  background-color: #f1f0f0;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-}
-
-.search-button:hover {
-  background-color: #333333;
-}
-
-/* Auth button (right side) */
+/* =========================
+   AUTH BUTTON
+========================= */
 .custom-signup-login-button {
-  font-size: 14px;
-  font-weight: bold;
-  color: #010101;
-  border-radius: 5px;
-  padding: 8px 12px;
-  border: 2px solid #eeeeee;
-  background-color: transparent;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin-left: 15px;
+  font-weight: 600;
+  border: 2px solid #388e3c;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #388e3c;
   text-decoration: none;
-  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .custom-signup-login-button:hover {
-  background-color: #000000;
-  color: #fff !important;
-  border-color: red;
+  background-color: #388e3c;
+  color: white;
 }
 
-/* Cart container */
-.cart-container {
-  margin-left: 15px;
+/* =========================
+   PROFILE AVATAR
+========================= */
+.profile-wrapper {
+  position: relative;
 }
 
-/* Theme toggle container */
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+  background-color: #222;
+}
+
+/* Hover ring */
+.profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+.profile-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 230px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 999;
+  animation: dropdownFade 0.15s ease;
+}
+
+body.dark .profile-dropdown {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   DROPDOWN HEADER
+========================= */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.dropdown-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown-header strong {
+  font-size: 0.95rem;
+}
+
+.dropdown-header small {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(0,0,0,0.1);
+  margin: 6px 0;
+}
+
+body.dark .dropdown-divider {
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* =========================
+   DROPDOWN BUTTONS
+========================= */
+.profile-dropdown button {
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: inherit;
+}
+
+.profile-dropdown button:hover {
+  background-color: rgba(0,0,0,0.06);
+}
+
+body.dark .profile-dropdown button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Logout button */
+.profile-dropdown .logout {
+  color: #e53935;
+  font-weight: 600;
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
 .theme-toggle {
-  margin-left: 20px;
   display: flex;
   align-items: center;
 }
 
-/* ---------- TOGGLE SWITCH STYLES ---------- */
 .switch {
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 52px;
+  height: 28px;
 }
 
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  display: none;
 }
 
 .slider {
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: #ccc;
-  transition: 0.4s;
   border-radius: 34px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.slider:before {
-  position: absolute;
+.slider::before {
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
-  transition: 0.4s;
   border-radius: 50%;
+  transition: 0.3s;
 }
 
 input:checked + .slider {
-  background-color: #f32121;
+  background-color: #2196f3;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+input:checked + .slider::before {
+  transform: translateX(24px);
 }
 
-/* ---------- LIGHT MODE ---------- */
-body.light .navbar-custom {
-  background-color: #ffffff;
-}
-
-body.light .navbar-custom .navbar-brand,
-body.light .navbar-custom .nav-link,
-body.light .navbar-custom .navbar-text {
-  color: #000000;
-}
-
-body.light .custom-signup-login-button {
-  color: #b90e0e;
-  border-color: #be0d0d;
-}
-
-/* ---------- DARK MODE ---------- */
-body.dark .navbar-custom {
-  background-color: #000000;
-}
-
-body.dark .navbar-custom .navbar-brand,
-body.dark .navbar-custom .nav-link,
-body.dark .navbar-custom .navbar-text {
-  color: #ffffff;
-}
-
-body.dark .custom-signup-login-button {
-  color: hsl(0, 100%, 99%);
-  border-color: #cd0000;
-}
-
-/* ---------- HOVER EFFECTS ---------- */
-/* Navbar brand hover */
-.navbar-brand:hover,
-.navbar-brand:hover .dog-logo {
-  color: red !important;
-}
-
-/* Nav links hover */
-.navbar-custom .nav-link:hover {
-  color: red !important;
-}
-
-/* Dog logo styles */
-.dog-logo {
-  margin-left: 8px;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-/* Profile container */
-.profile-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: 15px;
-}
-
-.profile-name {
-  font-weight: bold;
-  color: inherit;
-}
-
-.logout-button {
-  font-size: 14px;
-  color: #030503;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0;
-}
-
-.logout-button:hover {
-  color: red !important;
-}
-
-/* ---------- GLOBAL DARK MODE STYLES ---------- */
-
-/* Dark mode for entire page */
-body.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-/* Dark mode for main content */
-body.dark .main-content {
-  background-color: #121212;
-  color: #ffffff;
-  min-height: 100vh;
-}
-
-/* Dark mode for containers and sections */
-body.dark .container,
-body.dark .container-fluid,
-body.dark .row,
-body.dark .col {
-  background-color: transparent;
-  color: inherit;
-}
-
-/* Dark mode for cards */
-body.dark .card {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .card-header {
-  background-color: #2d2d2d;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .card-body {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-/* Dark mode for form elements */
-body.dark .form-control {
-  background-color: #333333;
-  color: #ffffff;
-  border-color: #555555;
-}
-
-body.dark .form-control::placeholder {
-  color: #cccccc;
-}
-
-body.dark .form-label {
-  color: #ffffff;
-}
-
-/* Dark mode for buttons (except search button) */
-body.dark .btn:not(.search-button):not(.custom-signup-login-button) {
-  background-color: #333333;
-  color: #ffffff;
-  border-color: #555555;
-}
-
-body.dark .btn:not(.search-button):not(.custom-signup-login-button):hover {
-  background-color: #555555;
-  color: #ffffff;
-}
-
-/* Keep search button black in both themes */
-.search-button {
-  background-color: #000000 !important;
-  color: white !important;
-  border: none !important;
-}
-
-.search-button:hover {
-  background-color: #333333 !important;
-}
-
-/* Dark mode for dropdowns */
-body.dark .dropdown-menu {
-  background-color: #333333;
-  color: #ffffff;
-  border-color: #555555;
-}
-
-body.dark .dropdown-item {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-body.dark .dropdown-item:hover,
-body.dark .dropdown-item:focus {
-  background-color: #555555;
-  color: #ffffff;
-}
-
-/* Dark mode for navbar dropdown specifically */
-body.dark .navbar-custom .dropdown-menu {
-  background-color: #333333;
-}
-
-body.dark .navbar-custom .dropdown-item {
-  color: #ffffff;
-}
-
-body.dark .navbar-custom .dropdown-item:hover {
-  background-color: #555555;
-  color: #ffffff;
-}
-
-/* Dark mode for tables */
-body.dark .table {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .table th,
-body.dark .table td {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #2d2d2d;
-}
-
-/* Dark mode for alerts */
-body.dark .alert {
-  background-color: #2d2d2d;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .alert-success {
-  background-color: #000000;
-  color: #ffffff;
-  border-color: #000000;
-}
-
-body.dark .alert-info {
-  background-color: #000000;
-  color: #ffffff;
-  border-color: #0277bd;
-}
-
-body.dark .alert-warning {
-  background-color: #ff6f00;
-  color: #ffffff;
-  border-color: #ff8f00;
-}
-
-body.dark .alert-danger {
-  background-color: #b71c1c;
-  color: #ffffff;
-  border-color: #c62828;
-}
-
-/* Dark mode for modals */
-body.dark .modal-content {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .modal-header,
-body.dark .modal-footer {
-  background-color: #2d2d2d;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-body.dark .modal-body {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-/* Dark mode for badges */
-body.dark .badge {
-  color: #ffffff;
-}
-
-/* Dark mode for text colors */
-body.dark .text-dark {
-  color: #ffffff !important;
-}
-
-body.dark .text-muted {
-  color: #aaaaaa !important;
-}
-
-body.dark .text-black {
-  color: #ffffff !important;
-}
-
-/* Dark mode for backgrounds */
-body.dark .bg-light {
-  background-color: #2d2d2d !important;
-}
-
-body.dark .bg-white {
-  background-color: #1e1e1e !important;
-}
-
-/* ---------- RESPONSIVE DESIGN ---------- */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    flex-direction: column;
-    align-items: center;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .profile-dropdown {
+    right: -10px;
   }
 
-  .form-container {
-    margin: 1rem 0;
-    width: 100%;
-    justify-content: center;
+  .navbar-right {
+    gap: 12px;
   }
-
-  .form-control {
-    width: 100% !important;
-  }
-
-  .custom-signup-login-button,
-  .profile-container,
-  .cart-container,
-  .theme-toggle {
-    margin: 0.5rem 0;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .profile-container {
-    flex-direction: column;
-    gap: 5px;
-  }
-}
-
-/* Ensure smooth transitions */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

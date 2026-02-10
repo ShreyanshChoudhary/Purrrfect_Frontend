@@ -6,6 +6,45 @@
   height: 100vh;
   background-color: #f6f5f7;
   font-family: 'Arial', sans-serif;
+  position: relative;
+  padding-top: 80px; /* Add padding to accommodate logo */
+}
+
+/* Logo Header Styles */
+.auth-page__logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-page__logo .navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #080100;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.auth-page__logo .navbar-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  color: #080100;
+  text-decoration: none;
+}
+
+.auth-page__logo .dog-logo {
+  color: #080100;
 }
 
 /* Container */
@@ -157,6 +196,8 @@ input {
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 button {
@@ -170,14 +211,22 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  cursor: pointer;
+  margin: 8px 0;
 }
 
 button:active {
   transform: scale(0.95);
 }
+
+button:hover {
+  opacity: 0.9;
+}
+
 .SignIn{
   color: #000000;
 }
+
 .password-container {
   position: relative;
   width: 100%;
@@ -194,4 +243,279 @@ button:active {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  padding: 5px;
+  user-select: none;
+}
+
+/* Google Button Styling */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+  transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Divider for Google button */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #666;
+  font-size: 14px;
+  width: 100%;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+/* OTP Verification Panel Styles */
+.otp-verification-panel {
+  padding: 40px;
+  text-align: center;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.otp-header h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.otp-subtitle {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.otp-subtitle strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.otp-form {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.otp-input-container {
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  padding: 16px;
+  font-size: 18px;
+  letter-spacing: 8px;
+  text-align: center;
+  width: 100%;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  background: #fff;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin: 0;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+}
+
+.otp-input::placeholder {
+  letter-spacing: normal;
+  color: #999;
+  font-weight: normal;
+}
+
+.otp-timer {
+  margin-bottom: 25px;
+  min-height: 20px;
+}
+
+.timer {
+  color: #e74c3c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.timer-placeholder {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.verify-button {
+  width: 100%;
+  padding: 15px;
+  background: #080100;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.verify-button:hover:not(:disabled) {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.verify-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.otp-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.resend-button,
+.cancel-button {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.resend-button:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #080100;
+  color: #080100;
+}
+
+.resend-button:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.cancel-button {
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.cancel-button:hover {
+  background: #f8f9fa;
+  border-color: #666;
+  color: #333;
+}
+
+.security-note {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 20px;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-page {
+    padding-top: 70px;
+  }
+  
+  .auth-page__logo .navbar-brand {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+  
+  .auth-page__logo .dog-logo {
+    size: 20px;
+  }
+  
+  .auth-page__container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .auth-page__form-content {
+    padding: 0 30px;
+  }
+  
+  .otp-verification-panel {
+    padding: 30px 20px;
+  }
+  
+  .otp-actions {
+    flex-direction: column;
+  }
+  
+  .auth-page__overlay-panel {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding-top: 60px;
+  }
+  
+  .auth-page__logo .navbar-brand {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+  
+  .auth-page__logo {
+    top: 15px;
+  }
+}
+
+/* Animation for OTP panel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification-panel {
+  animation: fadeIn 0.4s ease-out;
 }
