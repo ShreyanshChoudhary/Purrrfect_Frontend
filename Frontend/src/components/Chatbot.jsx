@@ -15,7 +15,7 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const BASE_URL = "http://localhost:8081"; // Your Spring Boot backend
+  const BASE_URL = "https://purrrfect-backend.onrender.com"; // Your Spring Boot backend
 
   const dogOptions = {
     loop: true,

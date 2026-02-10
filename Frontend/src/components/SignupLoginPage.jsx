@@ -11,7 +11,7 @@ function SignupLoginPage() {
   const navigate = useNavigate();
   const { login: userLogin } = useUser();
 
-  const BASE_URL = "http://localhost:8081";
+  const BASE_URL = "https://purrrfect-backend.onrender.com";
 
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);

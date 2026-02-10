@@ -14,7 +14,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchPetDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8081/api/products/${id}`);
+        const response = await fetch(`https://purrrfect-backend.onrender.com/api/products/${id}`);
         if (!response.ok) throw new Error("Failed to fetch pet details");
         const data = await response.json();
         setPet(data);

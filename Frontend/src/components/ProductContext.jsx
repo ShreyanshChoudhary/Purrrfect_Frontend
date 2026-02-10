@@ -9,7 +9,7 @@ export const ProductProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:8081/api/products');
+                const response = await fetch('https://purrrfect-backend.onrender.com/api/products?page=${page}');
                 if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }
