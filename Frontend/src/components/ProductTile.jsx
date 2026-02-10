@@ -20,7 +20,7 @@ const ProductTile = () => {
   const fetchProducts = async (page) => {
     try {
       setIsLoading(true);
-      const response = await fetch(`https://purrrfect-backend.onrender.com/api/products`, {
+      const response = await fetch(`https://purrrfect-backend.onrender.com/api/products?page=${page}`, {
         method: 'GET',
       });
 
@@ -51,15 +51,24 @@ const ProductTile = () => {
       {products.length === 0 ? (
         <p>No products available.</p>
       ) : (
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          spaceBetween={15}
-          slidesPerView={3}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          className="product-swiper"
-        >
+  <Swiper
+  modules={[Navigation, Pagination, Autoplay]}
+  navigation
+  pagination={{ clickable: true }}
+  spaceBetween={15}
+  autoplay={{ delay: 3000, disableOnInteraction: false }}
+
+  breakpoints={{
+    320: { slidesPerView: 1 },
+    480: { slidesPerView: 1.2 },
+    640: { slidesPerView: 2 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  }}
+
+  className="product-swiper"
+>
+
           {products.map((product, index) => {
             const imageUrl = product.imageUrl
               ? `${product.imageUrl}?timestamp=${new Date().getTime()}`

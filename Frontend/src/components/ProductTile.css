@@ -1,15 +1,29 @@
-/* Product Tile Container */
+/* ============================= */
+/* PRODUCT TILE CONTAINER */
+/* ============================= */
+
 .product-tile-container {
   position: relative;
   width: 100%;
-  max-width: 80%;
+  max-width: 1200px;   /* Desktop cap */
   margin: 0 auto;
   padding: 40px 0;
   box-sizing: border-box;
   overflow: visible;
 }
 
-/* Swiper overrides */
+/* Mobile container */
+@media (max-width: 768px) {
+  .product-tile-container {
+    max-width: 95%;
+    padding: 20px 0;
+  }
+}
+
+/* ============================= */
+/* SWIPER OVERRIDES */
+/* ============================= */
+
 .product-swiper {
   overflow: visible !important;
   padding: 30px 0;
@@ -19,7 +33,10 @@
   pointer-events: auto !important;
 }
 
-/* Product Slide */
+/* ============================= */
+/* PRODUCT SLIDE */
+/* ============================= */
+
 .product-slide {
   transition: all 0.3s ease;
   cursor: pointer !important;
@@ -29,7 +46,10 @@
   transform: scale(0.95);
 }
 
-/* Product Card */
+/* ============================= */
+/* PRODUCT CARD */
+/* ============================= */
+
 .product-card {
   width: 100%;
   height: 100%;
@@ -42,7 +62,8 @@
   position: relative;
 }
 
-/* Override Bootstrap Card styling */
+/* Bootstrap Card Override */
+
 .product-card .card {
   border-radius: 40px !important;
   overflow: hidden;
@@ -53,34 +74,88 @@
   color: #000000;
 }
 
+/* ============================= */
+/* IMAGE STYLING */
+/* ============================= */
+
 .product-card .card-img-top {
+  width: 100%;
   height: 200px;
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.4s ease;
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  .product-card .card-img-top {
+    height: 160px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .product-card .card-img-top {
+    height: 140px;
+  }
+}
+
+/* ============================= */
+/* CARD BODY */
+/* ============================= */
+
 .product-card .card-body {
   padding: 1rem;
   background-color: #ffffff;
   color: #000000;
+  text-align: center;
 }
+
+/* Title */
 
 .product-card .card-title {
+  font-size: 1rem;
+  font-weight: 600;
   color: #000000;
+  word-break: break-word;
 }
 
+/* Description clamp */
+
 .product-card .card-text {
+  font-size: 0.9rem;
   color: #666666;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
+/* Price */
 
 .product-card .list-group-item {
   background-color: #f8f9fa;
   color: #000000;
   border-color: #dee2e6;
+  font-size: 0.9rem;
 }
 
-/* Instagram Reel-like Hover Effects */
+/* Mobile text adjust */
+
+@media (max-width: 480px) {
+  .product-card .card-title {
+    font-size: 0.9rem;
+  }
+
+  .product-card .card-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================= */
+/* DESKTOP HOVER EFFECTS */
+/* ============================= */
+
 .swiper-slide-active .product-card,
 .product-slide:hover .product-card {
   transform: scale(1.05);
@@ -88,34 +163,64 @@
   z-index: 10;
 }
 
-/* For all other slides when one is hovered */
+/* Reel shift effect */
+
 .product-slide:hover ~ .product-slide .product-card {
   transform: translateX(20px);
 }
+
+/* Dim non-hover */
 
 .product-slide:not(:hover) .product-card {
   filter: brightness(0.9);
 }
 
-/* Add a subtle border glow like Instagram */
+/* Glow border */
+
 .product-slide:hover .product-card {
   border: 2px solid transparent;
   background-clip: padding-box;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 
-              0 0 0 2px rgba(62, 152, 255, 0.2);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(62, 152, 255, 0.2);
 }
 
-/* Image zoom effect on hover */
+/* Image zoom */
+
 .product-card:hover .card-img-top {
   transform: scale(1.1);
 }
 
-/* Additional hover effects for text */
+/* Title hover */
+
 .product-card:hover .card-title {
-  color: #e51810; /* Instagram blue */
+  color: #e51810;
 }
 
-/* Override Swiper button styling */
+/* ============================= */
+/* DISABLE HOVER ON MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .product-slide,
+  .product-card {
+    transform: none !important;
+  }
+
+  .product-slide:hover .product-card {
+    transform: none !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .product-slide:hover ~ .product-slide .product-card {
+    transform: none !important;
+  }
+}
+
+/* ============================= */
+/* SWIPER NAV BUTTONS */
+/* ============================= */
+
 .swiper-button-next,
 .swiper-button-prev {
   color: white;
@@ -136,7 +241,19 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Make pagination visible */
+/* Hide arrows on mobile */
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* ============================= */
+/* PAGINATION */
+/* ============================= */
+
 .swiper-pagination-bullet {
   background-color: #333;
   opacity: 0.7;
@@ -147,14 +264,10 @@
   opacity: 1;
 }
 
-/* ---------- DARK MODE STYLES ---------- */
+/* ============================= */
+/* DARK MODE */
+/* ============================= */
 
-/* Dark mode for product tile container */
-body.dark .product-tile-container {
-  background-color: transparent;
-}
-
-/* Dark mode for product cards */
 body.dark .product-card .card {
   background-color: #1e1e1e !important;
   color: #ffffff !important;
@@ -180,66 +293,43 @@ body.dark .product-card .list-group-item {
   border-color: #444444 !important;
 }
 
-/* Dark mode hover effects */
+/* Dark hover */
+
 body.dark .swiper-slide-active .product-card,
 body.dark .product-slide:hover .product-card {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 body.dark .product-slide:hover .product-card {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 
-              0 0 0 2px rgba(62, 152, 255, 0.3);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(62, 152, 255, 0.3);
 }
 
 body.dark .product-card:hover .card-title {
-  color: #e51d1d !important; /* Lighter blue for dark mode */
+  color: #ff3b3b !important;
 }
 
-/* Dark mode for non-hovered cards */
-body.dark .product-slide:not(:hover) .product-card {
-  filter: brightness(0.8);
-}
+/* Button */
 
-/* Dark mode for Swiper navigation */
-body.dark .swiper-button-next,
-body.dark .swiper-button-prev {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #000000;
-}
-
-body.dark .swiper-button-next:hover,
-body.dark .swiper-button-prev:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Dark mode for pagination */
-body.dark .swiper-pagination-bullet {
-  background-color: #ffffff;
-  opacity: 0.5;
-}
-
-body.dark .swiper-pagination-bullet-active {
-  background-color: #ffffff;
-  opacity: 1;
-}
-
-/* Dark mode for View Details button */
 body.dark .product-card .btn-primary {
   background-color: #e83410 !important;
   border-color: #d21919 !important;
-  color: #ffffff !important;
 }
 
 body.dark .product-card .btn-primary:hover {
   background-color: #dd3c0f !important;
-  border-color: #cd1515 !important;
 }
 
-/* Ensure smooth transitions for dark mode */
+/* Smooth transitions */
+
 .product-card .card,
 .product-card .card-body,
 .product-card .card-title,
 .product-card .card-text,
 .product-card .list-group-item {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
