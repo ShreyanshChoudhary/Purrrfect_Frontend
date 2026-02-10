@@ -1,11 +1,22 @@
-// Import path module using ES module syntax
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
-export default {
+export default defineConfig({
+  plugins: [react()],
+
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // Adjust based on your alias needs
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  // Add other Vite configuration options as needed
-};
+
+  build: {
+    outDir: 'dist',      // Vercel expects this
+    sourcemap: false,
+  },
+
+  server: {
+    port: 5173,
+  },
+})
