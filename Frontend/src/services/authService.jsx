@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base URL of your Spring Boot backend
-const API_URL = "http://localhost:8081";
+const API_URL = "https://purrrfect-backend.onrender.com";
 
 // Create axios instance with default config
 const api = axios.create({
