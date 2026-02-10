@@ -20,7 +20,7 @@ const ProductTile = () => {
   const fetchProducts = async (page) => {
     try {
       setIsLoading(true);
-      const response = await fetch(`https://purrrfect-backend.onrender.com/api/products?page=${page}`, {
+      const response = await fetch(`https://purrrfect-backend.onrender.com/api/products`, {
         method: 'GET',
       });
 
